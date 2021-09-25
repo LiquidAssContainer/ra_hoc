@@ -5,7 +5,13 @@ export const VideoContainer = ({ list }) => {
 };
 
 const VideoList = ({ list }) => {
-  return list.map(({ url, date }) => <Video url={url} date={date} />);
+  return (
+    <div className="video_container">
+      {list.map(({ url, date }) => (
+        <Video url={url} date={date} />
+      ))}
+    </div>
+  );
 };
 
 const Video = ({ url, date }) => {

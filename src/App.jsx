@@ -1,12 +1,21 @@
 import { useState } from 'react';
 
 import { VideoContainer } from './components/VideoContainer/VideoContainer';
-import { videoList } from './constants/videoList';
+import { MediaContainer } from './components/MediaContainer/MediaContainer';
+
+import { videoList as initialVideoList } from './constants/videoList';
+import { mediaList as initialMediaList } from './constants/mediaList';
 
 import './styles/app.css';
 
 export const App = () => {
-  const [list, setList] = useState(videoList);
+  const [videoList, setVideoList] = useState(initialVideoList);
+  const [mediaList, setMediaList] = useState(initialMediaList);
 
-  return <VideoContainer list={list} />;
+  return (
+    <>
+      <VideoContainer list={videoList} />;
+      <MediaContainer list={mediaList} />;
+    </>
+  );
 };
