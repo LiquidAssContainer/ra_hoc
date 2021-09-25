@@ -2,16 +2,30 @@ export const MediaContainer = ({ list }) => {
   return <MediaList list={list} />;
 };
 
+const withWrapper = (component) => {
+  const { views } = component.props;
+  let Wrapper;
+
+  if (views <= 100) {
+    Wrapper = New;
+  } else if (views > 1000) {
+    Wrapper = Popular;
+  } else {
+    return component;
+  }
+  return <Wrapper>{component}</Wrapper>;
+};
+
 const MediaList = ({ list }) => {
   return (
     <div className="media_container">
       {list.map((item) => {
         switch (item.type) {
           case 'video':
-            return <VideoItem {...item} />;
+            return withWrapper(<VideoItem {...item} />);
 
           case 'article':
-            return <ArticleItem {...item} />;
+            return withWrapper(<ArticleItem {...item} />);
         }
       })}
     </div>
