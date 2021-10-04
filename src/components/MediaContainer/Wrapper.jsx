@@ -8,17 +8,9 @@ const Wrapper = ({ children, wrapType, label }) => {
 };
 
 export const New = ({ children }) => {
-  return (
-    <Wrapper wrapType="new" label="New!">
-      {children}
-    </Wrapper>
-  );
+  return <Wrapper wrapType="new" label="New!" children={children} />;
 };
 
 export const Popular = ({ children }) => {
-  return (
-    <Wrapper wrapType="popular" label="Popular!">
-      {children}
-    </Wrapper>
-  );
+  return <Wrapper wrapType="popular" label="Popular!" children={children} />;
 };
